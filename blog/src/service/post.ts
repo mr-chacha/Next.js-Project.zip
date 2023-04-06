@@ -31,7 +31,7 @@ export async function getFeaturedPosts(): Promise<Post[]> {
 export async function getNonePosts(): Promise<Post[]> {
   return getAllPosts().then((posts) => posts.filter((post) => !post.featured));
 }
-// 포스트를 클릭했을때 포스트의 데이터들을 보여주기
+// 포스트를 클릭했을때 파일안에 포스트의 데이터들을 보여주기
 export async function getPostData(fileName: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), "data", "posts", `${fileName}.md`);
   //모든 포스트들을 가져와서

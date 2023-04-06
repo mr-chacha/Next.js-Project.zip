@@ -14,6 +14,7 @@ export default function Categories({ categoires, selected, onClick }: Props) {
       <ul>
         {categoires.map((category) => (
           <li
+            //호버되면 500 이고 선택된 카테고리는 600으로
             className={`cursor-pointer hover:text-sky-500 ${
               category === selected && "text-sky-600"
             }`}
