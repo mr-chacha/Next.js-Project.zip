@@ -3,6 +3,12 @@ import React from "react";
 import { icons } from "react-icons";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
+//SEO
+export const metadata = {
+  title: "Contack Me",
+  description: "차차에게 메일 보내기",
+};
+
 const LINKS = [
   {
     icon: <AiFillGithub />,

@@ -2,6 +2,12 @@ import FilterablePosts from "@/components/FilterablePosts";
 import { getAllPosts } from "@/service/post";
 import React from "react";
 
+//SEO
+export const metadata = {
+  title: "All Posts",
+  description: "풀스택 관련 블로그 글 ",
+};
+
 export default async function PostPage() {
   //포스트 페이지에서는 등록된 포스트의 카테고리를 분리해줌
   const posts = await getAllPosts();

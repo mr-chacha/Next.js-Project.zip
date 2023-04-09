@@ -1,8 +1,15 @@
 import Hero from "@/components/Hero";
 import React from "react";
 
+//SEO
+export const metadata = {
+  title: "About Me",
+  description: "주니어 프론트엔드 개발자 차차의 블로그",
+};
+
 export default function AboutPage() {
   const TITLE_CLASS = "text-2xl font-bold text-gray-800 m-2";
+
   return (
     <>
       <Hero />

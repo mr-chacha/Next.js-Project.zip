@@ -1,8 +1,20 @@
 import AdjacentPostCard from "@/components/AdjacentPostCard";
 import PostContent from "@/components/PostContent";
-import { getPostData } from "@/service/post";
+import { getFeaturedPosts, getPostData } from "@/service/post";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+//SEO
+export async function generateMetadata({
+  params: { slug },
+}: Props): Promise<Metadata> {
+  const { title, description } = await getPostData(slug);
+  return {
+    title,
+    description,
+  };
+}
 
 type Props = {
   params: {
@@ -30,4 +42,11 @@ export default async function Postpage({ params: { slug } }: Props) {
       </section>
     </article>
   );
+}
+// 원하는 페이지를 서버사이드 렌더링으로서 미리 페이지를 만들어둠
+export async function generateStaticParms() {
+  const posts = await getFeaturedPosts();
+  return posts.map((post) => ({
+    slug: post.path,
+  }));
 }
